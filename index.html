@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            margin-top: 50px;
+        }
+
+        span {
+            grid-area: 2 / 2;
+        }
+
+        form {
+            display: grid;
+            grid-template: 40px 40px 40px / 1fr 1fr;
+            gap: 10px;
+            transform: translateX(25%);
+        }
+
+        input {
+            grid-area: 2 / 1;
+        }
+
+        button {
+            grid-area: 3 / 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="index.js" type="application/json"></script>
+</body>
+
+</html>
