@@ -4,7 +4,7 @@ export function validateEmail(email) {
 }
 
 export function validatePassword(password) {
-  return validateString(password);
+  return validateString(password) && !/\s/.test(password)
 }
 
 export function validateString(string) {
@@ -15,4 +15,7 @@ export function validateString(string) {
   );
 }
 
-export function validateFullName(value) {}
+export function validateFullName(fullName) {
+  // fullname minimal 2 kata ?
+  return validateString(fullName) && fullName.split(' ').length >= 2
+}
