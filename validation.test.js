@@ -4,21 +4,16 @@ const {
   validatePassword,
   validateFullName,
   validatePhoneNumber,
+  validateAge,
+  validateTitleDesc,
 } = require("./src/utils");
 
 // ----- string test -----
 // ===== rules =====
-//    ==> minimal 8 karakter
-//    ==> maksimal 255 karakter
-//    ==> tidak boleh kosong atau spasi kosong
+//    ==> tidak boleh kosong
 test("String validation - Valid string", () => {
   const validString = "abcd efgh";
   expect(validateString(validString)).toBe(true);
-});
-
-test("String validation - Invalid string", () => {
-  const invalidString = "abcd";
-  expect(validateString(invalidString)).toBe(false);
 });
 
 test("String validation - Invalid string", () => {
@@ -84,6 +79,32 @@ test("Phone Number validation - Valid phone number", () => {
 });
 
 test("Phone Number validation - Invalid phone number", () => {
-  const invalidNumberPhpne = "628995598448";
-  expect(validatePhoneNumber(invalidNumberPhpne)).toBe(false);
+  const invalidNumberPhone = "628995598448";
+  expect(validatePhoneNumber(invalidNumberPhone)).toBe(false);
+});
+
+// ----- age test -----
+// ===== rules =====
+//    ==> hanya boleh angka dan panjang tidak boleh lebih dari 2
+test("Age validation - Valid age", () => {
+  const validAge = "17";
+  expect(validateAge(validAge)).toBe(true);
+});
+
+test("Age validation - Invalid age", () => {
+  const invalidAge = "123";
+  expect(validateAge(invalidAge)).toBe(false);
+});
+
+// ----- title & description test -----
+// ===== rules =====
+//    ==> minimal 8 karakter, maksimal 500 karakter
+test("Title & Description validation - Valid Title & Description", () => {
+  const validTitleDesc = "contoh title";
+  expect(validateTitleDesc(validTitleDesc)).toBe(true);
+});
+
+test("Title & Description validation - Invalid Title & Description", () => {
+  const invalidTitleDesc = "title";
+  expect(validateTitleDesc(invalidTitleDesc)).toBe(false);
 });
