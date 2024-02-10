@@ -4,11 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Validation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla&display=swap"
+      rel="stylesheet"
+    />
     <style>
       * {
         box-sizing: border-box;
         margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: "Karla", sans-serif;
+      }
+      body {
+        background-image: url("./src/assets/bg.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
       }
       #root {
         display: flex;
@@ -17,7 +29,7 @@
         flex-direction: column;
       }
       form {
-        box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.3);
         padding: 20px;
         border-radius: 20px;
         margin-top: 20px;
@@ -39,10 +51,27 @@
       }
       input,
       button {
-        padding: 10px;
+        padding: 7px;
       }
       button {
         grid-column: 1 / -1;
+        background-color: #0b57d0;
+        color: white;
+        text-transform: uppercase;
+        border: none;
+        cursor: pointer;
+        font-weight: 700;
+        border-radius: 20px;
+        letter-spacing: 2px;
+        outline: thick double #0b57d0;
+      }
+      button:hover {
+        background-color: #0b57d0e3;
+        transition: 0.3s ease-in;
+      }
+      button:active {
+        transform: scale(0.99);
+        transition: 0.1s ease-out;
       }
       span {
         color: red;
