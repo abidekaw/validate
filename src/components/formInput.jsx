@@ -2,7 +2,7 @@ import React from "react";
 
 export default function FormInput(props) {
   return (
-    <div className="input--wrapper">
+    <div className="input--item">
       <label htmlFor={props.name}>{props.placeholder} :</label>
       <input
         id={props.name}

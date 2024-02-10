@@ -133,8 +133,10 @@ export default function App() {
     <>
       <form onSubmit={handleSubmit}>
         <h1>Validasi</h1>
-        {renderedInput}
-        <button type="submit">Submit</button>
+        <div className="input-container">
+          {renderedInput}
+          <button type="submit">Submit</button>
+        </div>
       </form>
     </>
   );
