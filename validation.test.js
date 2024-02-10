@@ -1,5 +1,5 @@
 import React from "react";
-import validator from "./src/utils";
+import validator, { validateNoXss } from "./src/utils";
 const _ = new validator();
 
 // ----- string test -----
@@ -106,7 +106,23 @@ test("Title & Description validation - Invalid Title & Description", () => {
 // ----- No Xss test -----
 // ===== rules =====
 //    ==> inject script asing
-// test("No Xss validation", () => {
-//   const inject = "<script>alert('hai')</script>";
-//   expect(_.validateNoXss(inject)).toBe("");
-// });
+test("No Xss validation", () => {
+  const inject = "<script>alert('hai')</script>";
+  expect(_.validateNoXss(inject)).toBe("");
+});
+
+// ----- Date test -----
+// ===== rules =====
+//    ==> format tanggal YYYY-DD-MM || MM-DD-YYYY
+test("DATE validation", () => {
+  const date = "20-20-2000";
+  expect(_.validateDate(date)).toBe(false);
+});
+
+// ----- HTML valid test -----
+// ===== rules =====
+//    ==> tag html harus valid
+test("HTML Tag validation", () => {
+  const tag = "<p>ini paraghraph</p>";
+  expect(_.validateHtml(tag)).toBe(true);
+});

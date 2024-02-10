@@ -1,6 +1,6 @@
 import React from "react";
 import FormInput from "./components/formInput";
-import validator from "./utils";
+import Validator from "./utils";
 
 export default function App() {
   const [formData, setFormData] = React.useState({
@@ -9,8 +9,7 @@ export default function App() {
     email: "",
     age: "",
     phoneNumber: "",
-    title: "",
-    description: "",
+    titleDesc: "",
     date: "",
     fullName: "",
   });
@@ -50,7 +49,7 @@ export default function App() {
     {
       id: 6,
       type: "text",
-      name: "title",
+      name: "titleDesc",
       placeholder: "Title",
     },
     {
@@ -80,11 +79,39 @@ export default function App() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const test = new validator();
+    const test = new Validator();
     const errObj = {};
 
     if (!test.validateEmail(formData.email)) {
-      errObj.email = "e.g. test@mail.com";
+      errObj.email = "contoh: test@mail.com";
+    }
+
+    if (!test.validatePassword(formData.password)) {
+      errObj.password = "minimal 8 character dan tidak boleh ada spasi...";
+    }
+
+    if (!test.validateFullName(formData.fullName)) {
+      errObj.fullName = "nama lengkap setidaknya 2 kata ya...";
+    }
+
+    if (!test.validateAge(formData.age)) {
+      errObj.age = "setidaknya 2 angka umur yg boleh...";
+    }
+
+    if (!test.validatePhoneNumber(formData.phoneNumber)) {
+      errObj.phoneNumber = "contoh: +62899XXXXX min. 11 max. 13";
+    }
+
+    if (!test.validateTitleDesc(formData.titleDesc)) {
+      errObj.titleDesc = "kependekan atau kepanjangan. min. 8 max. 500";
+    }
+
+    if (!test.validateDate(formData.date)) {
+      errObj.date = "formatnya MM-DD-YYYY / YYYY-MM-DD";
+    }
+
+    if (!test.validateString(formData.username)) {
+      errObj.username = "tidak bole kosong atau spasi kosong ya..";
     }
 
     setErrorMsg(errObj);
