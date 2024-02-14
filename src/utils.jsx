@@ -24,7 +24,10 @@ export default class Validator {
   }
 
   validateFullName(fullName) {
-    return this.validateString(fullName) && fullName.split(" ").length >= 2;
+    const arr = fullName.split(" ");
+
+    const newArr = arr.filter((name) => name.trim() != "");
+    return newArr.length >= 2;
   }
 
   validatePhoneNumber(phoneNumber) {
@@ -180,7 +183,7 @@ export default class Validator {
 
     for (let i = 0; i < body.children.length; i++) {
       let child = body.children[i];
-      
+
       if (!validTags.includes(child.tagName.toLowerCase())) {
         return false;
       }
